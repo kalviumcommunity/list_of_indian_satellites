@@ -1,65 +1,3 @@
-// const express = require('express')
-// const router = express.Router()
-// const {connectDb} = require('./db.js')
-// const satellite = require('./scheema.js')
-
-// router.get('/',async(req,res)=>{
-//     try{
-//         const Satellites = await satellite.find()
-//         res.json(Satellites)
-//     }catch(err){
-//         res.json({err})
-//     }
-// })
-// router.get('/:id',async(req,res)=>{
-//     try{
-//         const SatellitesFound = await satellite.findById(req.params.id)
-//         res.json(SatellitesFound)
-//     }catch(err){
-//         res.json({err})
-//     }
-// })
-// router.post('/add-satellite',async(req,res)=>{
-//     const newSatellite = new satellite({
-//         SatelliteId:req.body.SatelliteId,
-//         agenda:req.body.agenda,
-//         launch_date:req.body.launch_date,
-//         launch_vehicle:req.body.launch_vehicle,
-//         launch_site:req.body.launch_site,
-//     })
-//     try{
-//         const saveSatellite = await newSatellite.save()
-//         res.json(saveSatellite)
-//     }catch(err){
-//         res.json({err})
-//     }
-// })
-// router.patch('/:id',async(req,res)=>{
-//     try{
-//         const SatellitesFound = await satellite.findByIdAndUpdate(req.params.id)
-//         if (!SatellitesFound){
-//             return res.status(404).json({error:"satellite not found"})
-//         }
-//         res.json(SatellitesFound);
-//     }catch(err){
-//         res.status(500).send('Error'+err)
-//     }
-// })
-// router.delete('/:id',async(req,res)=>{
-//     try{
-//         const SatellitesFound = await satellite.findByIdAndUpdate(req.params.id)
-//         if (!SatellitesFound){
-//             return res.status(404).json({eroor:"satellite not found"})
-//         }
-//     }catch(err){
-//         res.status(500).send('Error:'+err)
-
-//     }
-// })
-// connectDb()
-
-// module.exports = router
-
 const express = require('express');
 const router = express.Router();
 const satellite = require('./scheema');
@@ -88,6 +26,7 @@ router.get('/:id', async (req, res) => {
 router.post('/add-satellite', async (req, res) => {
     const newSatellite = new satellite({
         SatelliteId: req.body.SatelliteId,
+        satellite:req.body.satellite,
         agenda: req.body.agenda,
         launch_date: req.body.launch_date,
         launch_vehicle: req.body.launch_vehicle,
