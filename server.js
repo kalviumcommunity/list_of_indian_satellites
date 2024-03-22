@@ -5,10 +5,13 @@ const routes = require('./route');
 
 const app = express();
 connectDb();
+
 app.use(express.json());
+
 app.get('/ping', (req, res) => {
   res.send('pong');
 });
+
 app.get('/', (req, res) => {
   if (checkconnected()) {
     res.send('Database connection status: Connected');
@@ -22,4 +25,4 @@ app.use('/api', routes);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
+}); 
