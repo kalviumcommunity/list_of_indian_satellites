@@ -10,3 +10,6 @@
     - The website will have a **home page* and a main page** .
     - The home page will have the description of the website.
     - The main page will show all the datas of the satellites.
+
+## Deployed link:  
+[https://s57-list-of-indian-satellites.netlify.app/](https://s57-list-of-indian-satellites.netlify.app/)

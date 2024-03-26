@@ -31,6 +31,7 @@ router.post('/add-satellite', async (req, res) => {
         launch_date: req.body.launch_date,
         launch_vehicle: req.body.launch_vehicle,
         launch_site: req.body.launch_site,
+        image_url:req.body.image_url,
     });
     try {
         const saveSatellite = await newSatellite.save();

@@ -4,18 +4,12 @@ meta {
   seq: 1
 }
 
-get {
-  url: http://localhost:3000/api/
+post {
+  url: https://yard-story.codedamn.pro/api/data
   body: json
   auth: none
 }
 
 body:json {
-  {
-    "satellite":"bhaskara",
-    "agenda":"something",
-    "launch_date":"date",
-    "launch_vehicle":"vehicle",
-    "launch_site":"site"
-  }
+   { "best_ug_degree": "kalvium" }
 }
