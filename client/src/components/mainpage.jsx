@@ -1,11 +1,50 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './mainpage.css'
+import './mainpage2'
+import axios from "axios";
+import { useLocation } from 'react-router-dom';
 function Main() {
+  const location = useLocation();
+  const [index, setIndex] = useState(parseInt(localStorage.getItem('pos'), 10) || 0);
+  const [sat, setSat] = useState([]);
+  console.log(index)
+  const increment = () => {
+    setIndex(prevIndex => (prevIndex < 22 ? prevIndex + 1 : 0));
+  };
+  
+  const decrement = () => {
+    setIndex(prevIndex => (prevIndex > 0 ? prevIndex - 1 : 22));
+  };
+  window.addEventListener("keydown", function(event){
+    switch (event.key){
+        case "ArrowRight":
+            increment()
+            break;
+    }
+  });
+   window.addEventListener("keydown", function(event){
+    switch (event.key){
+        case "ArrowLeft":
+            decrement()
+            break;
+    }
+  });
+  useEffect(() => {
+    axios.get('http://localhost:3000/api')
+      .then(response => {
+        setSat(response.data);
+        console.log(response.data[0]);
+        console.log(response.data) 
+      })
+      .catch(err => console.log(err));
+  }, []); 
   return (
     <div className='Baground'>
+      
       <div>
-        <h2 className='sat-name'>Chandrayaan-3</h2>
-        <h4 className='sat-agenda'>Lunar Exploration</h4>
+        {sat.length > 0 &&<h2 className='sat-name'>{sat[index].satellite}</h2>}
+        {sat.length > 0 && <h4 className='sat-agenda'>{sat[index].agenda}</h4>}
       </div>
       <div className='launch-data'>
         <h3 className='laun-date'>Launch Date: </h3>
@@ -13,16 +52,18 @@ function Main() {
         <h3 className='laun-site'> Launch Site:</h3>
       </div>
       <div className='launch-datas'>
-        <h5 className='lauch-date'>14 July 2023, 09:05:17 (UTC) </h5>
-        <h5 className='lauch-vehicle'> LVM3 M04</h5>
-        <h5 className='lauch-site'>Satish Dhawan Space Centre, Sriharikota, Andhra Pradesh</h5>
+        {sat.length > 0 && <h5 className='lauch-date'>{sat[index].launch_date} </h5>}
+        {sat.length > 0 &&<h5 className='lauch-vehicle'>{sat[index].launch_vehicle}</h5>}
+        {sat.length > 0 && <h5 className='lauch-site'>{sat[index].launch_site}</h5>}
       </div>
       <div>
-        <img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2023/08/chandrayaan-3-5-1691547437.jpg" alt="" className='sat-image'/>
+      {sat.length > 0 &&<img src={sat[index].image_url} alt="" className='sat-image'/>}
       </div>
-      <button className='back-btn'>← Back</button>
-      <button className='next-btn'>Next →</button>
-      <nav >
+      <Link to='/mainpage' className='back-button'>← Satellite Lists</Link>
+      <button className='back-btn' onClick={decrement}>← Back</button>
+      <button className='next-btn' onClick={increment}>Next →</button>
+
+      <nav className='all'>
         <Link to='/' className='link'>Home</Link>
         <Link to='/about' className='link'>About</Link>
         <Link to='/mainpage' className='link'>Explore</Link>
