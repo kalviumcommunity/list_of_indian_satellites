@@ -14,12 +14,15 @@
 }
 
 .link{
-    position: relative;
-    left: 1050px;
-    top: -572px;
     text-decoration: none;
     color: white;
     margin-left: 30px;
+}
+.all{
+    position: absolute;
+    left: 1050px;
+    top: 50px;
+    
 }
 .sat-name{
     position: relative;
@@ -94,18 +97,30 @@
     width: 560px;
 }
 .back-btn{
-    position: relative;
-    left: 90px;
-    top: 150px;
+    position: absolute;
+    left: 1200px;
+    top: 740px;
     background: none;
     border: none;
     color: white;
     font-size: 1.3rem;
+    z-index: 1001;
+}
+.back-button{
+    position: absolute;
+    left: 80px;
+    top: 736px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    z-index: 1001;
+    text-decoration: none;
 }
 .next-btn{
-    position: relative;
-    left: 1200px;
-    top: 150px;
+    position: absolute;
+    left: 1300px;
+    top: 740px;
     background: none;
     border: none;
     color: white;
