@@ -25,7 +25,7 @@ function Main2() {
                 <Link to='/apipage' className='link1'>Api</Link>
             </nav>
             <h1 id="title">List of Indian <br /> Satellites</h1>
-
+            <Link to='/updatesat' id="add-sat">Add New Satellite +</Link>
             <div className="sats">
             {
                    sat.map((data, dataIndex) => (

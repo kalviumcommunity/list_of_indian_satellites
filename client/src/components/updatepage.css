@@ -1,0 +1,122 @@
+.update-body{
+    background-image: url('./assets/update.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    overflow-x: hidden;
+}
+#title1{
+    position: relative;
+    top: 80px;
+    margin-left: 100px;
+}
+form{
+    position: relative;
+    left: 120px;
+    top: 320px;
+}
+input{
+    color: white;
+}
+.add-sat-name{
+    position: relative;
+    bottom: 135px;
+    right: 40px;
+    font-size: 1.5rem;
+}
+.add-sat-name input{
+    width: 500px;
+    position: relative;
+    bottom: 4px;
+    left: 15px;
+    height: 20px;
+    background: none;
+    border: 1px solid white;
+}
+.add-sat-agenda{
+    position: relative;
+    bottom: 80px;
+    right: 40px;
+    font-size: 1.5rem;
+}
+.add-sat-agenda input{
+    width: 470px;
+    position: relative;
+    bottom: 4px;
+    left: 15px;
+    height: 20px;
+    background: none;
+    border: 1px solid white;
+}
+.add-laun-date{
+    position: relative;
+    bottom: 25px;
+    right: 40px;
+    font-size: 1.5rem;
+}
+.add-laun-date input{
+    width: 515px;
+    position: relative;
+    bottom: 4px;
+    left: 15px;
+    height: 20px;
+    background: none;
+    border: 1px solid white;
+}
+.add-laun-vehicle{
+    position: relative;
+    top: 35px;
+    right: 40px;
+    font-size: 1.5rem;
+}
+.add-laun-vehicle input{
+    width: 475px;
+    position: relative;
+    bottom: 4px;
+    left: 15px;
+    height: 20px;
+    background: none;
+    border: 1px solid white;
+}
+.add-laun-site{
+    position: relative;
+    top: 80px;
+    right: 40px;
+    font-size: 1.5rem;
+}
+.add-laun-site input{
+    width: 525px;
+    position: relative;
+    bottom: 4px;
+    left: 15px;
+    height: 20px;
+    background: none;
+    border: 1px solid white;
+}
+.submit-btn{
+    position: relative;
+    left: 560px;
+    top: 170px;
+    border: 1px solid white;
+    background: none;
+    color: white;
+    padding: 5px 20px 5px 20px;
+    font-size: 1rem;
+    box-shadow: 5px 5px 4px rgba(255, 255, 255, 0.3);
+}
+.add-image-url{
+    position: relative;
+    top: 120px;
+    right: 40px;
+    font-size: 1.5rem;
+}
+.add-image-url input{
+    width: 525px;
+    position: relative;
+    bottom: 4px;
+    left: 15px;
+    height: 20px;
+    background: none;
+    border: 1px solid white;
+}

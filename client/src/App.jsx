@@ -5,6 +5,7 @@ import About from './components/aboutpage'
 import Apipage from './components/apipage'
 import Mainpage from './components/mainpage'
 import Mainpage2 from './components/mainpage2'
+import Update from './components/updatepage';
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
         <Route path='/apipage' element={<Apipage/>}></Route>
         <Route path='/mainpage2' element={<Mainpage/>}></Route>
         <Route path='/mainpage' element={<Mainpage2/>}></Route>
+        <Route path='/updatesat' element={<Update/>}></Route>
       </Routes>
     </>
   );
