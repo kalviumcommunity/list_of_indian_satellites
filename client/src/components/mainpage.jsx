@@ -1,35 +1,22 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './mainpage.css'
-import './mainpage2'
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
+
 function Main() {
   const location = useLocation();
   const [index, setIndex] = useState(parseInt(localStorage.getItem('pos'), 10) || 0);
   const [sat, setSat] = useState([]);
-  console.log(index)
+
   const increment = () => {
-    setIndex(prevIndex => (prevIndex < 22 ? prevIndex + 1 : 0));
+    setIndex(prevIndex => (prevIndex < sat.length - 1 ? prevIndex + 1 : 0));
   };
   
   const decrement = () => {
-    setIndex(prevIndex => (prevIndex > 0 ? prevIndex - 1 : 22));
+    setIndex(prevIndex => (prevIndex > 0 ? prevIndex - 1 : sat.length - 1));
   };
-  window.addEventListener("keydown", function(event){
-    switch (event.key){
-        case "ArrowRight":
-            increment()
-            break;
-    }
-  });
-   window.addEventListener("keydown", function(event){
-    switch (event.key){
-        case "ArrowLeft":
-            decrement()
-            break;
-    }
-  });
+
   useEffect(() => {
     axios.get('http://localhost:3000/api')
       .then(response => {
@@ -39,11 +26,32 @@ function Main() {
       })
       .catch(err => console.log(err));
   }, []); 
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.key){
+          case "ArrowRight":
+              increment()
+              break;
+          case "ArrowLeft":
+              decrement()
+              break;
+          default:
+              break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [increment, decrement]);
+
   return (
     <div className='Baground'>
-      
       <div>
-        {sat.length > 0 &&<h2 className='sat-name'>{sat[index].satellite}</h2>}
+        {sat.length > 0 && <h2 className='sat-name'>{sat[index].satellite}</h2>}
         {sat.length > 0 && <h4 className='sat-agenda'>{sat[index].agenda}</h4>}
       </div>
       <div className='launch-data'>
@@ -53,11 +61,11 @@ function Main() {
       </div>
       <div className='launch-datas'>
         {sat.length > 0 && <h5 className='lauch-date'>{sat[index].launch_date} </h5>}
-        {sat.length > 0 &&<h5 className='lauch-vehicle'>{sat[index].launch_vehicle}</h5>}
+        {sat.length > 0 && <h5 className='lauch-vehicle'>{sat[index].launch_vehicle}</h5>}
         {sat.length > 0 && <h5 className='lauch-site'>{sat[index].launch_site}</h5>}
       </div>
       <div>
-      {sat.length > 0 &&<img src={sat[index].image_url} alt="" className='sat-image'/>}
+        {sat.length > 0 && <img src={sat[index].image_url} alt="" className='sat-image'/>}
       </div>
       <Link to='/mainpage' className='back-button'>← Satellite Lists</Link>
       <button className='back-btn' onClick={decrement}>← Back</button>

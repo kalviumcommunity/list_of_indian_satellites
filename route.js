@@ -41,7 +41,7 @@ router.post('/add-satellite', async (req, res) => {
     }
 });
 
-router.patch('/:id', async (req, res) => {
+router.put('/updateSat/:id', async (req, res) => {
     try {
         const updatedSatellite = await satellite.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedSatellite) {
@@ -53,7 +53,7 @@ router.patch('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/deleteSat/:id', async (req, res) => {
     try {
         const deletedSatellite = await satellite.findByIdAndDelete(req.params.id);
         if (!deletedSatellite) {

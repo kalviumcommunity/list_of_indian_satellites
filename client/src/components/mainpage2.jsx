@@ -12,6 +12,17 @@ function Main2() {
             })
             .catch(err => console.log(err));
     }, []); 
+    const handleDelete = (id) => {
+      const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+      if (confirmDelete) {
+        axios.delete(`http://localhost:3000/api/deleteSat/${id}`)
+          .then(response => {
+            location.reload();
+            console.log(response);
+          })
+          .catch(err => console.log(err));
+      }
+    };
     const sendIndex=(indexpos)=>{
         localStorage.setItem('pos',indexpos);
         console.log(indexpos)
@@ -35,11 +46,14 @@ function Main2() {
                         onClick={() => sendIndex(dataIndex)} // Corrected
                       >
                         {data.satellite}
+                        <Link className="edit-btn" to={`/editSat/${data._id}`}> Edit +</Link>
+                        <Link className="delete-btn" to='/mainpage' onClick={(e)=>handleDelete(data._id)}>Delete ×</Link>
                       </button>
                     </Link>
                   ))
                 }
             </div>
+            
         </div>
     );
 }
