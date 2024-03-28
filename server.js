@@ -2,12 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { connectDb, checkconnected } = require('./db');
 const routes = require('./route');
-
+const cors = require('cors')
 const app = express();
 connectDb();
 
 app.use(express.json());
-
+app.use(cors())
 app.get('/ping', (req, res) => {
   res.send('pong');
 });
