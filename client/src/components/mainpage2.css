@@ -56,3 +56,39 @@
     text-decoration: none;
     font-size: 1.2rem;
 }
+.edit-btn{
+    position: absolute;
+    left: 550px;
+    top: 32px;
+    border: solid 1px blue;
+    color: white;
+    text-decoration: none;
+    padding: 2px 5px 2px 5px;
+    font-size: 0.7rem;
+    display: none;
+}
+.edit-btn:hover{
+    background-color: blue;
+}
+.delete-btn{
+    position: absolute;
+    left: 480px;
+    top: 32px;
+    border: solid 1px rgb(255, 0, 0);
+    color: white;
+    text-decoration: none;
+    padding: 2px 5px 2px 5px;
+    font-size: 0.7rem;
+    background: none;
+    display: none;
+}
+.delete-btn:hover{
+    background-color: red;
+}
+
+.sat-names:hover .edit-btn{
+    display: inline;
+}
+.sat-names:hover .delete-btn{
+    display: inline;
+}

@@ -6,6 +6,7 @@ import Apipage from './components/apipage'
 import Mainpage from './components/mainpage'
 import Mainpage2 from './components/mainpage2'
 import Update from './components/updatepage';
+import Edit from './components/editpage'
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/mainpage2' element={<Mainpage/>}></Route>
         <Route path='/mainpage' element={<Mainpage2/>}></Route>
         <Route path='/updatesat' element={<Update/>}></Route>
+        <Route path='/editsat/:id' element={<Edit/>}></Route>
       </Routes>
     </>
   );
