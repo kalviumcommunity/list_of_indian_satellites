@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const satellite = require('./scheema');
+const Joi = require("joi");
+const { validateSatellite } = require("./validator"); 
 
 router.get('/', async (req, res) => {
     try {
@@ -24,20 +26,16 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/add-satellite', async (req, res) => {
-    const newSatellite = new satellite({
-        SatelliteId: req.body.SatelliteId,
-        satellite:req.body.satellite,
-        agenda: req.body.agenda,
-        launch_date: req.body.launch_date,
-        launch_vehicle: req.body.launch_vehicle,
-        launch_site: req.body.launch_site,
-        image_url:req.body.image_url,
-    });
     try {
+        const validationResult = validateSatellite(req.body);
+        if (validationResult.error) {
+            return res.status(400).json({ error: validationResult.error.details.map(detail => detail.message) });
+        }
+        const newSatellite = new satellite(req.body);
         const saveSatellite = await newSatellite.save();
         res.json(saveSatellite);
     } catch (err) {
-        res.status(400).json({ error: err.message });
+        res.status(500).json({ error: err.message });
     }
 });
 
