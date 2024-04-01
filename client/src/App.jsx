@@ -7,6 +7,7 @@ import Mainpage from './components/mainpage'
 import Mainpage2 from './components/mainpage2'
 import Update from './components/updatepage';
 import Edit from './components/editpage'
+import Login from './components/loginpage';
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
         <Route path='/mainpage' element={<Mainpage2/>}></Route>
         <Route path='/updatesat' element={<Update/>}></Route>
         <Route path='/editsat/:id' element={<Edit/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
       </Routes>
     </>
   );
