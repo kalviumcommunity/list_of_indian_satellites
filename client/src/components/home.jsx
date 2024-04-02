@@ -6,17 +6,15 @@ function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check if cookies exist
     const cookies = document.cookie;
     setIsLoggedIn(cookies);
-  }, []); // Runs once on component mount
+  }, []); 
 
   const deleteCookie = async () => {
-    document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    sessionStorage.removeItem('login');
+    document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     setIsLoggedIn(false);
-  };
+};
 
   return (
     <div className='Body'>
