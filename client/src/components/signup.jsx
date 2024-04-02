@@ -13,22 +13,29 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
 
-    const updateUsertoCookie = (e) => {
+    const updateUsertoCookie = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
             alert("Passwords do not match");
             return;
         }
-
-        axios.post("http://localhost:3000/api/signup", { userName, password })
-            .then(result => {
-                console.log(result);
-                sessionStorage.setItem('login', true);
-                sessionStorage.setItem('signupSuccess', 'Signup successful');
-                navigate('/');
-            })
-            .catch(err => console.log(err));
+    
+        try {
+            const result = await axios.post("http://localhost:3000/api/signup", { userName, password });
+            console.log(result);
+            sessionStorage.setItem('login', true);
+            sessionStorage.setItem('signupSuccess', 'Signup successful')
+            navigate('/');
+        } catch (err) {
+            console.log(err);
+            if (err.response && err.response.status === 400) {
+                alert("User already exists");
+            } else {
+                alert("Some internal error occurred");
+            }
+        }
     };
+    
 
     return (
         <div className="loginbody">
