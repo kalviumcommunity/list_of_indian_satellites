@@ -6,6 +6,7 @@ const { validateSatellite } = require("./validator");
 const person = require('./userSchema')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
+require('dotenv').config
 router.get('/', async (req, res) => {
     try {
         const satellites = await satellite.find();
@@ -89,6 +90,8 @@ router.post('/login', async (req, res) => {
             return res.json({ message: "Login Successful", name: checkUser.userName, accessToken: token });
         } else {
             return res.status(401).json({ error: 'Invalid username / password' });
+        }else{
+            res.status(200).json({ message:'login sucessful' });
         }
     } catch (error) {
         console.error(error); 
@@ -97,10 +100,32 @@ router.post('/login', async (req, res) => {
 });
 
   
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
   router.post('/logout',(req,res)=>{
     res.clearCookie('username')
     res.clearCookie('password')
   
     res.status(200).json({message:'Logout succesful'})
   })
+module.exports = router;
+  router.post('/auth', async(req,res) => {
+    try{
+        const {username,password} = req.body
+    const user = {
+        "username" : username,
+        "password" : password
+    }
+    const ACCESS_TOKEN = jwt.sign(user, process.env.ACCESS_TOKEN, { expiresIn: '1d' });
+    res.cookie('token',ACCESS_TOKEN,{maxAge:365*24*60*60*100})
+    res.json({ "accessToken": ACCESS_TOKEN });
+  }catch(err){
+    console.error(err)
+    res.status(500).json({error:'Internal Server Error'})
+  }
+  });
 module.exports = router;

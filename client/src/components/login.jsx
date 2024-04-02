@@ -43,6 +43,39 @@
         }
     
         return (
+=======
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+  
+          const response = await axios.post('http://localhost:3000/api/login', { userName, password });
+          if (response.status === 200) {
+            setCookie('username', userName, 365);
+            setCookie('password', password, 365);
+            sessionStorage.setItem('loginSuccess', 'Login successful');
+            sessionStorage.setItem('login', true);
+            navigate("/mainpage")
+          } 
+        } catch (err) {
+          console.error(err);
+          console.log('user never exist')
+            const response = await axios.post('http://localhost:3000/api/login', { userName, password });
+            if (response.status === 200) {
+              setCookie('username', userName, 365);
+              setCookie('password', password, 365);
+              sessionStorage.setItem('loginSuccess', 'Login successful');
+              sessionStorage.setItem('login', true);
+              navigate("/mainpage");
+            } else {
+              console.log('Failed to log in');
+            }
+          } catch (err) {
+            console.error(err);
+            console.log('User does not exist or there was an error');
+          }
+        }
+    return (
+        <>
             <div className="loginbody">
                 <div>
                     <img src={image} alt="" id='login-sat-img' />
