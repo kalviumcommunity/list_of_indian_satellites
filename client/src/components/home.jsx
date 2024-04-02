@@ -6,10 +6,9 @@ function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check if cookies exist
     const cookies = document.cookie;
     setIsLoggedIn(cookies);
-  }, []); // Runs once on component mount
+  }, []); 
 
   const deleteCookie = async () => {
     document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
