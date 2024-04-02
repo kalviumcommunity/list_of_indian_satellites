@@ -24,7 +24,7 @@ const Signup = () => {
             .then(result => {
                 console.log(result);
                 sessionStorage.setItem('login', true);
-                sessionStorage.setItem('signupSuccess', 'Signup successful');
+                sessionStorage.setItem('signupSuccess', 'Signup successful')
                 navigate('/');
             })
             .catch(err => console.log(err));
