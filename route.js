@@ -4,6 +4,8 @@ const satellite = require('./scheema');
 const Joi = require("joi");
 const { validateSatellite } = require("./validator"); 
 const person = require('./userSchema')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 router.get('/', async (req, res) => {
     try {
         const satellites = await satellite.find();
@@ -80,21 +82,21 @@ router.post('/signup',async(req,res)=>{
 
 router.post('/login', async (req, res) => {
     try {
-        const { username, password } = req.body;
-        const user = await person.findOne({ username, password });
+        const checkUser = await person.findOne({ userName: req.body.userName });
         
-        if (!user) {
+        if (checkUser) {
+            const token = jwt.sign({ userId: checkUser.userName }, process.env.ACCESS_TOKEN);
+            return res.json({ message: "Login Successful", name: checkUser.userName, accessToken: token });
+        } else {
             return res.status(401).json({ error: 'Invalid username / password' });
         }
-  
-        
-        res.status(200).json({ user });
-        
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Internal Server Error' });
+    } catch (error) {
+        console.error(error); 
+        return res.status(500).json({ error: 'Internal Server Error' });
     }
-  });
+});
+
+  
   router.post('/logout',(req,res)=>{
     res.clearCookie('username')
     res.clearCookie('password')
