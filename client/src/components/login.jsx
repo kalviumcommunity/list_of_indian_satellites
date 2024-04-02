@@ -42,7 +42,7 @@ function Login(){
             setCookie('password', password, 365);
             sessionStorage.setItem('loginSuccess', 'Login successful');
             sessionStorage.setItem('login', true);
-            navigate("/mainpage");
+            navigate("/mainpage")
           } 
         } catch (err) {
           console.error(err);
