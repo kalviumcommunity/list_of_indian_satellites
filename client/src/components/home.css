@@ -38,11 +38,11 @@ p{
 }
 .links{
     position: relative;
-    left: 1000px;
+    left: 960px;
     bottom: 170px;
     text-decoration: none;
     color: white;
-    margin-left: 30px;
+    margin-left: 30;
 }
 .explore{
     position: relative;
@@ -53,8 +53,8 @@ p{
 }
 #dynamic-btn{
     position: relative;
-    left: 1260px;
-    top: -190px;
+    left: 1300px;
+    top: -191px;
 }
 #logout-btn{
     background: none;

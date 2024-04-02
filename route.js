@@ -3,7 +3,7 @@ const router = express.Router();
 const satellite = require('./scheema');
 const Joi = require("joi");
 const { validateSatellite } = require("./validator"); 
-
+const person = require('./userSchema')
 router.get('/', async (req, res) => {
     try {
         const satellites = await satellite.find();
@@ -63,4 +63,42 @@ router.delete('/deleteSat/:id', async (req, res) => {
     }
 });
 
+
+// for user login
+router.post('/signup',async(req,res)=>{
+    try{
+        const user = await person.create({
+            userName:req.body.userName,
+            password:req.body.password
+        })
+        res.send(user)
+    }catch(err){
+        console.error(err)
+    }
+  
+})
+
+router.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await person.findOne({ username, password });
+        
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid username / password' });
+        }
+  
+        
+        res.status(200).json({ user });
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  router.post('/logout',(req,res)=>{
+    res.clearCookie('username')
+    res.clearCookie('password')
+  
+    res.status(200).json({message:'Logout succesful'})
+  })
 module.exports = router;

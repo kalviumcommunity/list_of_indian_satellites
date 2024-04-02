@@ -11,11 +11,11 @@ function Home() {
     setIsLoggedIn(cookies);
   }, []); // Runs once on component mount
 
-  const deleteCookie = () => {
-    // Delete cookies
+  const deleteCookie = async () => {
     document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    setIsLoggedIn(false); // Update state
+    sessionStorage.removeItem('login');
+    setIsLoggedIn(false);
   };
 
   return (
@@ -35,11 +35,12 @@ function Home() {
         <Link to='/' className='links'>Home</Link>
         <Link to='/about' className='links'>About</Link>
         <Link to='/mainpage' className='links'>Explore</Link>
+        <Link to='/signup' className='links'>Sign Up</Link>
         <div className='links' id='dynamic-btn'>
           {isLoggedIn ? (
             <button id='logout-btn' onClick={deleteCookie}>Log out</button>
           ) : (
-            <Link to='/login' id='signin-btn'>Sign Up</Link>
+            <Link id='signin-btn' to='/login'>Sign in</Link>
           )}
         </div>
       </nav>
