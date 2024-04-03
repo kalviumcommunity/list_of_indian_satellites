@@ -18,7 +18,7 @@ function Update(){
     console.log(updated_user)
     const submit =(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:3000/api/add-satellite",{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url,updated_user})
+        axios.post("https://list-of-indian-satellites-1.onrender.com/api/add-satellite",{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url,updated_user})
         .then(result=>{
             console.log(result)
             navigate('/mainpage')

@@ -19,7 +19,7 @@ function Edit(){
     const navigate = useNavigate()
     
     useEffect(() => {
-        axios.get('http://localhost:3000/api/'+id)
+        axios.get('https://list-of-indian-satellites-1.onrender.com/api/'+id)
           .then(response => {
             console.log(response.data);
             console.log("the data is: ",response.data) 
@@ -33,7 +33,7 @@ function Edit(){
       }, []); 
     const update =(e)=>{
         e.preventDefault();
-        axios.put("http://localhost:3000/api/updateSat/"+id,{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url})
+        axios.put("https://list-of-indian-satellites-1.onrender.com/api/updateSat/"+id,{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url})
         .then(result=>{
             console.log(result)
             navigate('/mainpage')

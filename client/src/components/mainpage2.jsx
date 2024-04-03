@@ -9,7 +9,7 @@ function Main2() {
     const [selectedId, setSelectedId] = useState("all");
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/users/names')
+        axios.get('https://list-of-indian-satellites-1.onrender.com/api/users/names')
             .then(response => {
                 setUsers(response.data);
                 console.log(response.data);
@@ -19,14 +19,14 @@ function Main2() {
 
     useEffect(() => {
         if (selectedId === "all") {
-            axios.get(`http://localhost:3000/api/satellite`)
+            axios.get(`https://list-of-indian-satellites-1.onrender.com/api/satellite`)
                 .then(response => {
                     setSat(response.data);
                     console.log(response.data); 
                 })
                 .catch(err => console.log(err));
         } else {
-            axios.get(`http://localhost:3000/api/satellite/${selectedId}`)
+            axios.get(`https://list-of-indian-satellites-1.onrender.com/api/satellite/${selectedId}`)
                 .then(response => {
                     setSat(response.data);
                     console.log(response.data); 
@@ -43,7 +43,7 @@ function Main2() {
     const handleDelete = (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this item?");
         if (confirmDelete) {
-            axios.delete(`http://localhost:3000/api/deleteSat/${id}`)
+            axios.delete(`https://list-of-indian-satellites-1.onrender.com/api/deleteSat/${id}`)
                 .then(response => {
                     location.reload();
                     console.log(response);

@@ -18,7 +18,7 @@ function Main() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/satellite')
+    axios.get('https://list-of-indian-satellites-1.onrender.com/api/satellite')
       .then(response => {
         setSat(response.data);
         console.log(response.data[0]);

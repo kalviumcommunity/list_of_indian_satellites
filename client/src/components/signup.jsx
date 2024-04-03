@@ -21,7 +21,7 @@ const Signup = () => {
         }
     
         try {
-            const result = await axios.post("http://localhost:3000/api/signup", { userName, password });
+            const result = await axios.post("https://list-of-indian-satellites-1.onrender.com/api/signup", { userName, password });
             console.log(result);
             sessionStorage.setItem('login', true);
             sessionStorage.setItem('signupSuccess', 'Signup successful')
