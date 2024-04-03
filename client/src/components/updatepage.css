@@ -24,6 +24,7 @@ input{
     bottom: 135px;
     right: 40px;
     font-size: 1.5rem;
+    color: white;
 }
 .add-sat-name input{
     width: 500px;
@@ -33,12 +34,14 @@ input{
     height: 20px;
     background: none;
     border: 1px solid white;
+    color: white;
 }
 .add-sat-agenda{
     position: relative;
     bottom: 80px;
     right: 40px;
     font-size: 1.5rem;
+    color: white;
 }
 .add-sat-agenda input{
     width: 470px;
@@ -48,12 +51,14 @@ input{
     height: 20px;
     background: none;
     border: 1px solid white;
+    color: white;
 }
 .add-laun-date{
     position: relative;
     bottom: 25px;
     right: 40px;
     font-size: 1.5rem;
+    color: white;
 }
 .add-laun-date input{
     width: 515px;
@@ -63,12 +68,14 @@ input{
     height: 20px;
     background: none;
     border: 1px solid white;
+    color: white;
 }
 .add-laun-vehicle{
     position: relative;
     top: 35px;
     right: 40px;
     font-size: 1.5rem;
+    color: white;
 }
 .add-laun-vehicle input{
     width: 475px;
@@ -78,12 +85,14 @@ input{
     height: 20px;
     background: none;
     border: 1px solid white;
+    color: white;
 }
 .add-laun-site{
     position: relative;
     top: 80px;
     right: 40px;
     font-size: 1.5rem;
+    color: white;
 }
 .add-laun-site input{
     width: 525px;
@@ -93,6 +102,7 @@ input{
     height: 20px;
     background: none;
     border: 1px solid white;
+    color: white;
 }
 .submit-btn{
     position: relative;
@@ -110,6 +120,7 @@ input{
     top: 120px;
     right: 40px;
     font-size: 1.5rem;
+    color: white;
 }
 .add-image-url input{
     width: 525px;
@@ -119,4 +130,5 @@ input{
     height: 20px;
     background: none;
     border: 1px solid white;
+    color: white;
 }

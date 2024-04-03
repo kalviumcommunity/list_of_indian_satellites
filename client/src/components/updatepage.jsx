@@ -14,9 +14,11 @@ function Update(){
     const [ launch_site,setLaunchSite]=useState()
     const [image_url,setImageurl]=useState()
     const navigate = useNavigate()
+    const updated_user = localStorage.getItem('user')
+    console.log(updated_user)
     const submit =(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:3000/api/add-satellite",{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url})
+        axios.post("http://localhost:3000/api/add-satellite",{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url,updated_user})
         .then(result=>{
             console.log(result)
             navigate('/mainpage')

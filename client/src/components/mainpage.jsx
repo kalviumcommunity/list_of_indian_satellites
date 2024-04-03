@@ -18,7 +18,7 @@ function Main() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api')
+    axios.get('http://localhost:3000/api/satellite')
       .then(response => {
         setSat(response.data);
         console.log(response.data[0]);
