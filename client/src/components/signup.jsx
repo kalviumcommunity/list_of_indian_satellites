@@ -35,8 +35,6 @@ const Signup = () => {
             }
         }
     };
-    
-
     return (
         <div className="loginbody">
             <div>
@@ -58,6 +56,7 @@ const Signup = () => {
                     <img src={lock} alt="" id="lock" />
                     <input type="password" placeholder="confirm password" id="confpassword" onChange={(e) => setConfirmPassword(e.target.value)} required />
                 </div>
+                <div id="ask-sign">Already a user?<Link to='/login' id="ask-signin">Sign in</Link></div>
                 <button type="submit" id="submit">Sign up</button>
             </form>
             <Link to='/' className="backtohome-btn">← Back to home</Link>

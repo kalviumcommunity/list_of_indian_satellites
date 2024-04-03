@@ -9,7 +9,8 @@ const validator = (schema) =>(payload)=>
         launch_date: Joi.string().required(),
         launch_vehicle: Joi.string().required(), 
         launch_site: Joi.string().required(), 
-        image_url: Joi.string()
+        image_url: Joi.string(),
+        updated_user: Joi.string()
     })
 
 exports.validateSatellite = validator(satelliteSchema)

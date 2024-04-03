@@ -38,11 +38,12 @@ p{
 }
 .links{
     position: relative;
-    left: 960px;
+    left: 940px;
     bottom: 170px;
     text-decoration: none;
     color: white;
-    margin-left: 30;
+    margin-right: 30px;
+    font-size: 1rem;
 }
 .explore{
     position: relative;
@@ -66,4 +67,9 @@ p{
     color: white;
     font-size: 1rem;
     text-decoration: none;
+}
+button{
+    background: none;
+    border: none;
+    font-size: 1rem;
 }

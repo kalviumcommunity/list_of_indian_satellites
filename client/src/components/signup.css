@@ -92,3 +92,11 @@
     left: 1200px;
     bottom: -751px;
 }
+#ask-sign{
+    position: relative;
+    left: 85px;
+    top: 260px;
+}
+#ask-sign,#ask-signin{
+    color: white;
+}
