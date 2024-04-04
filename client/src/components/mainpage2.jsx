@@ -39,7 +39,7 @@ function Main2() {
         console.log(e.target.value);
         setSelectedId(e.target.value);
     };
-    
+     
     const handleDelete = (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this item?");
         if (confirmDelete) {
