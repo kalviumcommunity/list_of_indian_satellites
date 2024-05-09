@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Orbitron", sans-serif;
+}
+.Baground{
+    background-image: url('./assets/main.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    overflow-x: hidden;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+}
+.all{
+    position: absolute;
+    left: 1050px;
+    top: 50px;
+    
+}
+.sat-name{
+    position: relative;
+    left: 160px;
+    top: 70px;
+    font-size: 2rem;
+    color: white;
+}
+.sat-agenda{
+    position: relative;
+    left: 160px;
+    top: 80px;
+    font-weight: 50;
+    color: rgba(255, 255, 255, 0.593);
+}
+.launch-data{
+    position: relative;
+    left:710px;
+    top: 170px;
+    font-size: 0.8rem;
+}
+.laun-vehicle{
+    position: relative;
+    left: -335px;
+    top: 362px;
+    font-weight: 100;
+}
+.laun-date{
+    position: relative;
+    left: -351px;
+    top: 350px;
+    font-weight: 100;
+}
+.laun-site{
+    position: relative;
+    left: -354px;
+    top: 375px;
+    font-weight: 100;
+}
+.launch-datas{
+    position: relative;
+    left:1210px;
+    top: 470px;
+    font-size: 1.2rem;
+}
+.lauch-date{
+    position: relative;
+    top: -20px;
+    right: 50px;
+    color: rgba(255, 255, 255, 0.546);
+    font-weight: 100;
+}
+.lauch-vehicle{
+    position: relative;
+    bottom: 3px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.546);
+    font-weight: 100;
+}
+.lauch-site{
+    position: relative;
+    top: 12px;
+    right: 60px;
+    color: rgba(255, 255, 255, 0.546);
+    font-weight: 100;
+    width: 250px;
+}
+.sat-image{
+    position: relative;
+    top: 30px;
+    left: 390px;
+    height: 360px;
+    width: 560px;
+}
+.back-btn{
+    position: absolute;
+    left: 1200px;
+    top: 740px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    z-index: 1001;
+}
+.back-button{
+    position: absolute;
+    left: 80px;
+    top: 736px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    z-index: 1001;
+    text-decoration: none;
+}
+.next-btn{
+    position: absolute;
+    left: 1300px;
+    top: 740px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+}

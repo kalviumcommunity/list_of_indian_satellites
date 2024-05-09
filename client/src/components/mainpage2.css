@@ -1,0 +1,127 @@
+.org{
+    background-image: url('./assets/main2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    overflow-x: hidden;
+}
+.link1{
+    position: relative;
+    left: 1050px;
+    top: 51px;
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+}
+#title{
+    position: relative;
+    right: 390px;
+    top: 70px;
+    text-align: center;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+}
+.sat-names{
+    position: relative;
+    left: 50px;
+    background: none;
+    color: white;
+    width: 620px;
+    height: 70px;
+    margin-top: 20px;
+    font-size: 1rem;
+    border: 1px solid white;
+    transition: 0.7s;
+  
+}
+.sat-names:hover{
+    transform: scale(1.1);
+    text-decoration: underline;
+    box-shadow: 0px 4px 6px rgba(202, 212, 255, 0.453), 0px 1px 4px rgb(202, 212, 255);
+}
+.sats{
+    position: relative;
+    left: 50px;
+    top: 120px;
+    width: 720px;
+    height: 500px;
+    overflow-y: scroll;
+}
+#add-sat{
+    position: relative;
+    left: 1210px;
+    top: 640px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.edit-btn{
+    position: absolute;
+    left: 550px;
+    top: 32px;
+    border: solid 1px blue;
+    color: white;
+    text-decoration: none;
+    padding: 2px 5px 2px 5px;
+    font-size: 0.7rem;
+    display: none;
+}
+.edit-btn:hover{
+    background-color: blue;
+}
+.delete-btn{
+    position: absolute;
+    left: 480px;
+    top: 32px;
+    border: solid 1px rgb(255, 0, 0);
+    color: white;
+    text-decoration: none;
+    padding: 2px 5px 2px 5px;
+    font-size: 0.7rem;
+    background: none;
+    display: none;
+}
+.delete-btn:hover{
+    background-color: red;
+}
+
+.sat-names:hover .edit-btn{
+    display: inline;
+}
+.sat-names:hover .delete-btn{
+    display: inline;
+}
+#userDropdown{
+    position: relative;
+    left: 570px;
+    bottom: 420px;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    background-color: black;
+    width: 150px;
+    height: 30px;
+    border-radius: 0px;
+}
+option{
+    font-size: 1rem;
+    width: 100px;
+    height: 30px;
+}
+/* #dynamic-btn{
+    position: relative;
+    left: 1260px;
+    top: -190px;
+}
+#logout-btn{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+}
+#signin-btn{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+} */
