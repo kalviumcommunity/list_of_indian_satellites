@@ -78,7 +78,6 @@ router.delete('/deleteSat/:id', async (req, res) => {
     }
 });
 
-
 router.get('/users/names', async (req, res) => {
     try {
         const users = await person.find();
