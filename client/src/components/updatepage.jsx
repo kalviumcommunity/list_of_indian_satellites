@@ -14,9 +14,11 @@ function Update(){
     const [ launch_site,setLaunchSite]=useState()
     const [image_url,setImageurl]=useState()
     const navigate = useNavigate()
+    const updated_user = localStorage.getItem('user')
+    console.log(updated_user)
     const submit =(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:3000/api/add-satellite",{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url})
+        axios.post("https://list-of-indian-satellites-1.onrender.com/api/add-satellite",{ satellite,agenda,launch_date,launch_vehicle, launch_site,image_url,updated_user})
         .then(result=>{
             console.log(result)
             navigate('/mainpage')
@@ -51,7 +53,7 @@ function Update(){
                     </div>
                     <div className="add-image-url">
                         <label htmlFor="">Image Url:</label>
-                        <input type="text" placeholder="eg.optional" id="" onChange={(e)=>setImageurl(e.target.value)} />
+                        <input type="text" placeholder="optional" id="" onChange={(e)=>setImageurl(e.target.value)} />
                     </div>
                     <button type="submit" className="submit-btn">Update</button>
                 </form>
