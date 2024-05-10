@@ -18,7 +18,7 @@ router.get('/satellite', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const satelliteFound = await satellite.findById(req.params.id);
+        const satelliteFound = await satellite.findById(req.params.id)
         if (!satelliteFound) {
             return res.status(404).json({ error: "Satellite not found" });
         }
